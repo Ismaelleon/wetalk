@@ -1,7 +1,9 @@
 import Link from 'next/link';
 import { getSession, useSession, signIn } from 'next-auth/react';
+import { FcGoogle } from 'react-icons/fc';
 import HTMLHead from './components/htmlhead';
 import Header from './components/header';
+import ActionButton from './components/actionbutton';
 import Navigation from './components/navigation';
 
 export default function Home () {
@@ -14,6 +16,7 @@ export default function Home () {
 				<main className="flex flex-col">
 					<Header />
 				</main>
+				<ActionButton />
 				<Navigation />
 			</>
 		);
@@ -28,7 +31,8 @@ export default function Home () {
 					<h2 className="text-4xl font-serif font-semibold">Join WeTalk</h2>
 					<p className="text-lg">and connect with your friends!</p>
 					<section className="pt-5 flex flex-col w-full">
-						<button className="flex flex-row p-2 border border-neutral-400 rounded my-1" onClick={() => signIn('google')}>
+						<button className="flex flex-row items-center p-2 font-semibold border border-neutral-400 rounded my-1" onClick={() => signIn('google')}>
+							<FcGoogle size={24} className="mr-4" />
 							Sign Up with Google
 						</button>
 					</section>
